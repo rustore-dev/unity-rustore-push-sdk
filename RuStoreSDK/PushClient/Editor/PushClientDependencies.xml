@@ -1,0 +1,9 @@
+<dependencies>
+    <androidPackages>
+        <androidPackage spec="ru.rustore.sdk:pushclient:0.6.0-QA">
+            <repositories>
+                <repository>../AndroidLibs/repo</repository>
+            </repositories>
+        </androidPackage>
+    </androidPackages>
+</dependencies>
