@@ -1,8 +1,8 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec="ru.rustore.sdk:pushclient:0.6.0-QA">
+        <androidPackage spec="ru.rustore.sdk:pushclient:0.6.0">
             <repositories>
-                <repository>../AndroidLibs/repo</repository>
+                <repository>https://artifactory-external.vkpartner.ru/artifactory/maven</repository>
             </repositories>
         </androidPackage>
     </androidPackages>
