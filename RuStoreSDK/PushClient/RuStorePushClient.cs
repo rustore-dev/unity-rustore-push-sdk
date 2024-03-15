@@ -7,7 +7,7 @@ namespace RuStore.PushClient {
 
     public class RuStorePushClient {
 
-        public static string PluginVersion = "0.6.1";
+        public static string PluginVersion = "1.4.0";
 
         private static RuStorePushClient _instance;
         private static bool _isInstanceInitialized;
@@ -115,6 +115,32 @@ namespace RuStore.PushClient {
 
             var listener = new SubscribeTopicListener(onFailure, onSuccess);
             _clientWrapper.Call("unsubscribeFromTopic", topicName, listener);
+        }
+
+        public void SetClientId(string clientId, ClientIdType clientIdType) {
+            if (!IsPlatformSupported((e) => { })) {
+                return;
+            }
+
+            _clientWrapper.Call("setClientId", clientId, clientIdType.ToString());
+        }
+
+        public void SendTestNotification(TestNotificationPayload payload, Action<RuStoreError> onFailure, Action onSuccess) {
+            if (!IsPlatformSupported(onFailure)) {
+                return;
+            }
+
+            using (var helper = new AndroidJavaObject("ru.rustore.unitysdk.pushclient.TestNotificationHelper")) {
+                if (payload.data != null) {
+                    foreach (var d in payload.data) {
+                        if (!string.IsNullOrEmpty(d.Key) && !string.IsNullOrEmpty(d.Value)) {
+                            helper.Call("addData", d.Key, d.Value);
+                        }
+                    }
+                }
+                var listener = new SendTestNotificationListener(onFailure, onSuccess);
+                helper.Call("sendTestNotification", payload.title ?? "", payload.body ?? "", payload.imgUrl ?? "", listener);
+            }
         }
 
         private bool IsPlatformSupported(Action<RuStoreError> onFailure) {

@@ -31,7 +31,27 @@ namespace RuStore.UnitySample.UI {
 
             RuStorePushClient.Instance.Init(pushConfig);
 
+            //SendTestNotification();
+
             CheckNotificationsPermission();
+        }
+
+        private void SendTestNotification() {
+            var testPayload = new TestNotificationPayload() {
+                title = "Test",
+                body = "Test push notification",
+                data = new Dictionary<string, string>() {
+                    { "key1", "value1" },
+                    { "key2", "value2" },
+                    { "key3", "value3" }
+                }
+            };
+
+            RuStorePushClient.Instance.SendTestNotification(
+                payload: testPayload,
+                onFailure: OnError, 
+                onSuccess: () => { Debug.Log("Send test notification success"); 
+            });
         }
 
         private void CheckNotificationsPermission() {

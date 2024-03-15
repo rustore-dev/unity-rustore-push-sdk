@@ -8,6 +8,7 @@ namespace RuStore.Editor {
         [Header("Push Client SDK")]
         public string VKPNSProjectId;
         public bool allowNativeErrorHandling;
+        public bool testMode;
 
         [MenuItem("Window/RuStoreSDK/Settings/PushClient")]
         public static void EditPushClientSettings() {
