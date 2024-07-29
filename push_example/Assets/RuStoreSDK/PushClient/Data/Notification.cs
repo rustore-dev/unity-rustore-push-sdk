@@ -9,5 +9,6 @@
         public string color;
         public string icon;
         public string clickAction;
+        public ClickActionType? clickActionType;
     }
 }

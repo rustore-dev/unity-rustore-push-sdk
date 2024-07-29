@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,6 +49,8 @@ namespace RuStore.PushClient.Internal {
             }
 
             using (var notificationObject = messageObject.Get<AndroidJavaObject>("notification")) {
+                var jnotificationObject = notificationObject.Get<AndroidJavaObject>("clickActionType");
+
                 if (notificationObject != null) {
                     message.notification = new Notification() {
                         title = notificationObject.Get<string>("title"),
@@ -56,7 +59,8 @@ namespace RuStore.PushClient.Internal {
                         imageUrl = notificationObject.Get<AndroidJavaObject>("imageUrl")?.Call<string>("toString"),
                         color = notificationObject.Get<string>("color"),
                         icon = notificationObject.Get<string>("icon"),
-                        clickAction = notificationObject.Get<string>("clickAction")
+                        clickAction = notificationObject.Get<string>("clickAction"),
+                        clickActionType = jnotificationObject != null ? (ClickActionType)Enum.Parse(typeof(ClickActionType), jnotificationObject.Call<string>("toString"), true) : null
                     };
                 }
             }
