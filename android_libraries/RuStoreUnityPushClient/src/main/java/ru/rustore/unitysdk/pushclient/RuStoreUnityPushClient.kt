@@ -181,26 +181,6 @@ object RuStoreUnityPushClient : UnityLogListener  {
 	}
 
 	@JvmStatic
-	fun init(projectId: String, metricType: String, clientIdType: String?, clientIdValue: String?) {
-		val clientIdCallback = clientIdType?.let {
-			ClientIdCallback {
-				EnumConverter.getClientIdTypeFromString(clientIdType)?.let { type ->
-					ClientId(
-						clientIdType = type,
-						clientIdValue = clientIdValue.orEmpty()
-					)
-				}
-			}
-		}
-
-		init(
-			projectId = projectId,
-			metricType = metricType,
-			clientIdCallback = clientIdCallback
-		)
-	}
-
-	@JvmStatic
 	private fun init(projectId: String, metricType: String, application: Application? = null, clientIdCallback: ClientIdCallback? = null) {
 		RuStorePushClient.init(
 			application = application ?: PlayerProvider.getCurrentActivity().application,
