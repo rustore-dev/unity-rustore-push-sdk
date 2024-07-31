@@ -1,23 +1,59 @@
-# RuStore Unity SDK для подключения пуш-уведомлений
+## RuStore Unity плагин для подключения пуш-уведомлений
 
-## [Документация RuStore Unity SDK для подключения пуш-уведомлений.](https://help.rustore.ru/rustore/for_developers/developer-documentation/sdk_push-notifications/unity)
+### [🔗 Документация разработчика](https://www.rustore.ru/help/sdk/push-notifications/unity/)
 
-### Пример внедрения SDK.
+Плагин “RuStorePushClient” предоставляет функциональность для включения в приложение push-уведомлений через сервисы RuStore.
 
-Импортируйте пакет Example/RuStorePushSDKExample.unitypackage в новый проект Unity.
+Репозиторий содержит плагины “RuStorePushClient” и “RuStoreCommon”, а также демонстрационное приложение с примерами использования и настроек. Поддерживаются версии Unity 2022+.
 
-Добавьте в проект пакет Newtonsoft Json: откройте Package Manager, в меню "Add package by name..." введите название пакета com.unity.nuget.newtonsoft-json
 
-Откройте настройки проекта: File -> Edit -> Project Settings -> Player -> Android Settings.
-- pаздел Publishing Settings: включите настройки Custom Main Manifest, Custom Main Gradle Template, Custom Gradle Properties Template, настройте keystore для подписи приложения. 
-- раздел Other Settings: настройте package name, Minimum API Level = 24, Target API Level = 31 или выше.
+### Сборка примера приложения
 
-Откройте настройки External Dependency Manager: Assets -> External Dependency Manager -> Android Resolver -> Settings
-- включите настройки Use Jetifier, Patch mainTemplate.gradle, Patch gradleTemplate.properties.
+Вы можете ознакомиться с демонстрационным приложением содержащим представление работы всех методов sdk:
+- [README](push_example/README.md)
+- [push_example](https://gitflic.ru/project/rustore/unity-rustore-push-sdk/file?file=push_example)
 
-Обновите зависимости проекта: Assets -> External Dependency Manager -> Android Resolver -> Force Resolve
 
-Откройте настройки RuStore Push SDK: Window -> RuStoreSDK -> Settings -> PushClient. 
-- VKPNS Project Id — идентификатор вашего проекта в консоли разработчика RuStore
+### Установка плагина в свой проект
 
-Замените в Assets/Plugins/Android/AndroidManifest.xml строку YOUR_PROJECT_ID на идентификатор вашего проекта в консоли разработчика RuStore.
+1. Импортируйте пакет Example/RuStorePushSDKExample.unitypackage в проект Unity.
+
+2. Добавьте в проект пакет Newtonsoft Json: Window → Package Manager → + → Add package by name... → введите название пакета com.unity.nuget.newtonsoft-json
+
+3. Откройте настройки проекта: Edit → Project Settings → Player → Android Settings.
+
+4. В pазделе Publishing Settings: включите настройки Custom Main Manifest, Custom Main Gradle Template, Custom Gradle Properties Template. 
+
+5. В разделе Other Settings: настройте package name, Minimum API Level = 24, Target API Level = 34.
+
+6. Откройте настройки External Dependency Manager: Assets → External Dependency Manager → Android Resolver → Settings. Включите настройки Use Jetifier, Patch mainTemplate.gradle, Patch gradleTemplate.properties.
+
+7. Обновите зависимости проекта: Assets → External Dependency Manager → Android Resolver → Force Resolve.
+
+
+### Пересборка плагина
+
+Если вам необходимо изменить код библиотек плагинов, вы можете внести изменения и пересобрать подключаемые .aar файлы.
+
+1. Откройте в вашей IDE проект Android из папки _“android_libraries”_.
+
+2. Выполните сборку проекта командой gradle assemble.
+
+При успешном выполнении сборки в папках _“push_example / Assets / RuStoreSDK / BillingClient / Android”_ и _“push_example / Assets / RuStoreSDK / Common / Android”_ будут обновлены файлы:
+- RuStoreUnityPushClient.aar
+- RuStoreUnityCore.aar
+
+
+### История изменений
+
+[CHANGELOG](CHANGELOG.md)
+
+
+### Условия распространения
+
+Данное программное обеспечение, включая исходные коды, бинарные библиотеки и другие файлы распространяется под лицензией MIT. Информация о лицензировании доступна в документе [MIT-LICENSE](MIT-LICENSE.txt).
+
+
+### Техническая поддержка
+
+Дополнительная помощь и инструкции доступны на странице [rustore.ru/help/](https://www.rustore.ru/help/) и по электронной почте [support@rustore.ru](mailto:support@rustore.ru).
