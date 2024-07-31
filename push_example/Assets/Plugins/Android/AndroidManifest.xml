@@ -21,7 +21,7 @@
     </service>
     <meta-data
         android:name="ru.rustore.sdk.pushclient.project_id"
-        android:value="-Yv4b5cM2yfXm0bZyY6Rk7AHX8SrHmLI" />
+        android:value="YOUR_PROJECT_ID" />
     <meta-data
         android:name="ru.rustore.sdk.pushclient.params_class"
         android:value="ru.rustore.unitysdk.pushclient.RuStoreUnityPushClientParams" />
