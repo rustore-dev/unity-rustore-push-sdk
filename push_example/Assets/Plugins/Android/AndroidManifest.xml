@@ -24,6 +24,6 @@
         android:value="YOUR_PROJECT_ID" />
     <meta-data
         android:name="ru.rustore.sdk.pushclient.params_class"
-        android:value="ru.rustore.unitysdk.pushclient.RuStoreUnityPushClientParams" />
+        android:value="ru.rustore.unitysdk.pushclient.RuStorePushClientParamsExample" />
   </application>
 </manifest>
