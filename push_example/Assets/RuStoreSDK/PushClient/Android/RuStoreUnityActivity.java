@@ -10,6 +10,8 @@ public class RuStoreUnityActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
+		// Process your intents here
+		
 		Intent newIntent = new Intent(this, UnityPlayerActivity.class);
         startActivity(newIntent);
         finish();
