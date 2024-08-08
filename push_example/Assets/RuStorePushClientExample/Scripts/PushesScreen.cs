@@ -9,6 +9,8 @@ namespace RuStore.UnitySample.UI {
 
     public class PushesScreen : MonoBehaviour, IMessagingServiceListener, ILogListener {
 
+        private const string CopyMessage = "Copied";
+
         private const string NotificationsPermission = "android.permission.POST_NOTIFICATIONS";
 
         [SerializeField]
@@ -22,6 +24,9 @@ namespace RuStore.UnitySample.UI {
 
         [SerializeField]
         private LoadingIndicator _loadingIndicator;
+
+        [SerializeField]
+        private InputField _inputFieldToken;
 
         private void Awake() {
             var pushConfig = new RuStorePushClientConfig() {
@@ -60,12 +65,26 @@ namespace RuStore.UnitySample.UI {
             }
         }
 
+        public void CopyToken() {
+            GUIUtility.systemCopyBuffer = _inputFieldToken.text;
+            ShowToast(CopyMessage);
+        }
+
+        public void ShowToast(string message) {
+            using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+            using (AndroidJavaObject currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+            using (AndroidJavaObject utils = new AndroidJavaObject("com.plugins.pushexample.AndroidUtils")) {
+                utils.Call("showToast", currentActivity, message);
+            }
+        }
+
         public void GetToken() {
             RuStorePushClient.Instance.GetToken(
                 onFailure: OnError,
                 onSuccess: (response) => {
-                    var logString = string.Format("[I] Token received: {0}", response);
+                    _inputFieldToken.text = response;
 
+                    var logString = string.Format("[I] Token received: {0}", response);
                     Debug.Log(logString);
                     AddLog(logString);
                 });
@@ -75,6 +94,8 @@ namespace RuStore.UnitySample.UI {
             RuStorePushClient.Instance.DeleteToken(
                 onFailure: OnError,
                 onSuccess: () => {
+                    _inputFieldToken.text = string.Empty;
+
                     var logString = "[I] Delete token success";
                     Debug.Log(logString);
                     AddLog(logString);
