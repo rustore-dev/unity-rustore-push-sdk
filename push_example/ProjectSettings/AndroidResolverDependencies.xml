@@ -1,6 +1,6 @@
 <dependencies>
   <packages>
-    <package>ru.rustore.sdk:pushclient:6.+</package>
+    <package>ru.rustore.sdk:pushclient:6.1.0</package>
   </packages>
   <files />
   <settings>
