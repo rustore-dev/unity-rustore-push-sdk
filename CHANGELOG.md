@@ -1,5 +1,11 @@
 ## История изменений
 
+### Release 6.1.0
+- Версия SDK push 6.1.0.
+- RuStoreSDK помещена в отдельную assembly.
+- В пример добавлена кнопка копирования токена.
+
+
 ### Release 6.0.0
 - Версия SDK push 6.+.
 - Добавлено поле clickActionType в классс Notification.
