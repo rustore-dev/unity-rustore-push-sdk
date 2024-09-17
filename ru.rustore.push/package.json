@@ -1,0 +1,30 @@
+{
+  "name": "ru.rustore.push",
+  "version": "6.1.0",
+  "displayName": "RuStore Push",
+  "description": "RuStore SDK for connecting push notifications",
+  "unity": "2022.3",
+  "documentationUrl": "https://www.rustore.ru/help/sdk/push-notifications/unity",
+  "changelogUrl": "https://gitflic.ru/project/rustore/unity-rustore-push-sdk/blob?file=ru.rustore.push%2FCHANGELOG.md",
+  "licensesUrl": "https://gitflic.ru/project/rustore/unity-rustore-push-sdk/blob?file=MIT-LICENSE.txt",
+  "keywords": [
+    "rustore",
+    "push",
+	"notifications"
+  ],
+  "dependencies": {
+    "ru.rustore.core": "6.1.0"
+  },
+  "author": {
+    "name": "RuStore",
+    "email": "support@rustore.ru",
+    "url": "https://www.rustore.ru/developer"
+  },
+  "samples": [
+    {
+      "displayName": "RuStore Push Example",
+      "description": "Contains sample RuStore push",
+      "path": "Samples~/RuStorePushExample"
+    }
+  ]
+}
