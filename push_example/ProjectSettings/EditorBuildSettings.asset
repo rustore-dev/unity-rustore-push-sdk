@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/RuStorePushClientExample/Scenes/PushClientSampleScene.unity
+    path: Assets/RuStorePushExample/Scenes/PushClientSampleScene.unity
     guid: 337d3ffbd0ee8e54dbca6ce3f05806c2
   m_configObjects: {}
