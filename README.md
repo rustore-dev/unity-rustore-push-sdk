@@ -4,7 +4,7 @@
 
 Плагин “RuStorePushClient” предоставляет функциональность для включения в приложение push-уведомлений через сервисы RuStore.
 
-Репозиторий содержит плагины “RuStorePushClient” и “RuStoreCommon”, а также демонстрационное приложение с примерами использования и настроек. Поддерживаются версии Unity 2022+.
+Репозиторий содержит плагины “RuStorePushClient” и “RuStoreCore”, а также демонстрационное приложение с примерами использования и настроек. Поддерживаются версии Unity 2022+.
 
 
 ### Сборка примера приложения
@@ -39,14 +39,12 @@
 
 2. Выполните сборку проекта командой gradle assemble.
 
-При успешном выполнении сборки в папках _“push_example / Assets / RuStoreSDK / BillingClient / Android”_ и _“push_example / Assets / RuStoreSDK / Common / Android”_ будут обновлены файлы:
-- RuStoreUnityPushClient.aar
-- RuStoreUnityCore.aar
+При успешном выполнении сборки в папке _“ru.rustore.push / Runtime / Android”_ будет обновлен файл `RuStoreUnityPushClient.aar`
 
 
 ### История изменений
 
-[CHANGELOG](CHANGELOG.md)
+[CHANGELOG](ru.rustore.push/CHANGELOG.md)
 
 
 ### Условия распространения
