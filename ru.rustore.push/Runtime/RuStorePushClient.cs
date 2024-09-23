@@ -63,7 +63,7 @@ namespace RuStore.PushClient {
             var serviceListener = new MessagingServiceListener(config.messagingServiceListener);
             var logListener = new LogListener(config.logListener);
 
-            _clientWrapper.Call("init", serviceListener, logListener);
+            _clientWrapper.Call("init", config.allowNativeErrorHandling, serviceListener, logListener);
             _isInitialized = true;
 
             _allowNativeErrorHandling = _clientWrapper.Call<bool>("getErrorHandling");
