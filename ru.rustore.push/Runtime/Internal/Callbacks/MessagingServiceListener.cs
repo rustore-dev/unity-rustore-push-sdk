@@ -6,7 +6,7 @@ namespace RuStore.PushClient.Internal {
 
     public class MessagingServiceListener : AndroidJavaProxy {
 
-        private const string javaClassName = "ru.rustore.unitysdk.pushclient.RuStoreUnityMessagingServiceListener";
+        private const string javaClassName = "ru.rustore.unitysdk.pushclient.callbacks.RuStoreUnityMessagingServiceListener";
 
         private IMessagingServiceListener _serviceListener;
 

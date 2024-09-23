@@ -14,6 +14,7 @@ import ru.rustore.unitysdk.core.PlayerProvider
 import ru.rustore.unitysdk.core.callbacks.FeatureAvailabilityListener
 import ru.rustore.unitysdk.pushclient.callbacks.DeleteTokenListener
 import ru.rustore.unitysdk.pushclient.callbacks.GetTokenListener
+import ru.rustore.unitysdk.pushclient.callbacks.RuStoreUnityMessagingServiceListener
 import ru.rustore.unitysdk.pushclient.callbacks.SendTestNotificationListener
 import ru.rustore.unitysdk.pushclient.callbacks.SubscribeTopicListener
 import ru.rustore.unitysdk.pushclient.callbacks.UnityLogListener
