@@ -117,14 +117,6 @@ namespace RuStore.PushClient {
             _clientWrapper.Call("unsubscribeFromTopic", topicName, listener);
         }
 
-        public void SetClientId(string clientId, ClientIdType clientIdType) {
-            if (!IsPlatformSupported((e) => { })) {
-                return;
-            }
-
-            _clientWrapper.Call("setClientId", clientId, clientIdType.ToString());
-        }
-
         public void SendTestNotification(TestNotificationPayload payload, Action<RuStoreError> onFailure, Action onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
