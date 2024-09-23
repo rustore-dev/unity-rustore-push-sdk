@@ -14,6 +14,9 @@ namespace RuStore.UnitySample.UI {
         private const string NotificationsPermission = "android.permission.POST_NOTIFICATIONS";
 
         [SerializeField]
+        private bool _allowNativeErrorHandling;
+
+        [SerializeField]
         private Text _log;
 
         [SerializeField]
@@ -30,6 +33,7 @@ namespace RuStore.UnitySample.UI {
 
         private void Awake() {
             var pushConfig = new RuStorePushClientConfig() {
+                allowNativeErrorHandling = _allowNativeErrorHandling,
                 messagingServiceListener = this,
                 logListener = this
             };
