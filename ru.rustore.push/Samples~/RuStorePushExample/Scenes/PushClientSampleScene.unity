@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9b6d6e77d96394c80c2b854d1c5540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowNativeErrorHandling: 1
   _log: {fileID: 1496741216}
   _logScrollRect: {fileID: 1652159047}
   _messageBox: {fileID: 2145377536}

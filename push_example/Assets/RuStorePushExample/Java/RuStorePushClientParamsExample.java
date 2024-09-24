@@ -9,13 +9,10 @@ import ru.rustore.sdk.pushclient.provider.AbstractRuStorePushClientParams;
 
 public class RuStorePushClientParamsExample extends AbstractRuStorePushClientParams {
 
-	private boolean isTestModeEnabled;
+	private boolean isTestModeEnabled = false;
 
     public RuStorePushClientParamsExample(Context context) {
         super(context);
-		
-		int testMode = context.getResources().getIdentifier("rustore_PushClientSettings_testMode", "string", context.getPackageName());
-		isTestModeEnabled = context.getString(testMode).equalsIgnoreCase("true");
     }
 
     @Override
