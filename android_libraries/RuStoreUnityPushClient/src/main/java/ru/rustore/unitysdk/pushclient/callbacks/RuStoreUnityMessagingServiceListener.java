@@ -1,4 +1,4 @@
-package ru.rustore.unitysdk.pushclient;
+package ru.rustore.unitysdk.pushclient.callbacks;
 
 import java.util.List;
 

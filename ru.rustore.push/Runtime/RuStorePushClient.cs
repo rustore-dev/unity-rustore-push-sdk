@@ -63,7 +63,7 @@ namespace RuStore.PushClient {
             var serviceListener = new MessagingServiceListener(config.messagingServiceListener);
             var logListener = new LogListener(config.logListener);
 
-            _clientWrapper.Call("init", serviceListener, logListener);
+            _clientWrapper.Call("init", config.allowNativeErrorHandling, serviceListener, logListener);
             _isInitialized = true;
 
             _allowNativeErrorHandling = _clientWrapper.Call<bool>("getErrorHandling");
@@ -115,14 +115,6 @@ namespace RuStore.PushClient {
 
             var listener = new SubscribeTopicListener(onFailure, onSuccess);
             _clientWrapper.Call("unsubscribeFromTopic", topicName, listener);
-        }
-
-        public void SetClientId(string clientId, ClientIdType clientIdType) {
-            if (!IsPlatformSupported((e) => { })) {
-                return;
-            }
-
-            _clientWrapper.Call("setClientId", clientId, clientIdType.ToString());
         }
 
         public void SendTestNotification(TestNotificationPayload payload, Action<RuStoreError> onFailure, Action onSuccess) {
