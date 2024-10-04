@@ -27,6 +27,7 @@ namespace RuStore.PushClient.Internal {
                 ttl = messageObject.Get<int>("ttl"),
                 rawData = messageObject.Get<sbyte[]>("rawData"),
                 priority = messageObject.Get<int>("priority"),
+                from = messageObject.Get<string>("from")
             };
 
             using (var data = messageObject.Get<AndroidJavaObject>("data")) {
