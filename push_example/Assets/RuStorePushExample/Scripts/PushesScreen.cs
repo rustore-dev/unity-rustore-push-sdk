@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine.Android;
 
-namespace RuStore.UnitySample.UI {
+namespace RuStore.PushExample.UI {
 
     public class PushesScreen : MonoBehaviour, IMessagingServiceListener, ILogListener {
 
