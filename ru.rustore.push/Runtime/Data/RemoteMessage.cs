@@ -11,5 +11,6 @@ namespace RuStore.PushClient {
         public int priority;
         public sbyte[] rawData;
         public int ttl;
+        public string from;
     }
 }
