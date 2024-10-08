@@ -4,7 +4,7 @@ using RuStore.PushClient;
 using System.Collections.Generic;
 using UnityEngine.Android;
 
-namespace RuStore.UnitySample.UI {
+namespace RuStore.PushExample.UI {
 
     public class PushesScreen : MonoBehaviour, IMessagingServiceListener, ILogListener {
 
@@ -76,7 +76,7 @@ namespace RuStore.UnitySample.UI {
         public void ShowToast(string message) {
             using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
             using (AndroidJavaObject currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
-            using (AndroidJavaObject utils = new AndroidJavaObject("com.plugins.pushexample.AndroidUtils")) {
+            using (AndroidJavaObject utils = new AndroidJavaObject("com.plugins.pushexample.RuStorePushAndroidUtils")) {
                 utils.Call("showToast", currentActivity, message);
             }
         }
