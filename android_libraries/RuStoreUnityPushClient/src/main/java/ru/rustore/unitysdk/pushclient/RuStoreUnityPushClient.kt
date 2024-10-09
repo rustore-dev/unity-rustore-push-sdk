@@ -1,7 +1,13 @@
 package ru.rustore.unitysdk.pushclient
 
+import android.app.Application
+import com.vk.push.common.clientid.ClientId
+import com.vk.push.common.clientid.ClientIdCallback
+import com.vk.push.common.clientid.ClientIdType
 import ru.rustore.sdk.core.exception.RuStoreException
 import ru.rustore.sdk.pushclient.RuStorePushClient
+import ru.rustore.sdk.pushclient.common.logger.DefaultLogger
+import ru.rustore.sdk.pushclient.common.logger.Logger
 import ru.rustore.sdk.pushclient.messaging.exception.RuStorePushClientException
 import ru.rustore.sdk.pushclient.messaging.model.RemoteMessage
 import ru.rustore.sdk.pushclient.messaging.model.TestNotificationPayload
@@ -31,6 +37,36 @@ object RuStoreUnityPushClient : UnityLogListener  {
 
 	fun getErrorHandling() : Boolean {
 		return allowErrorHandling
+	}
+
+	fun init(application: Application, projectId: String, loggerMode: RuStoreUnityLoggerMode, loggerTag: String, testModeEnabled: Boolean, clientIdType: RuStoreUnityClientIdType?, clientIdValue: String?) {
+		val clientIdCallback = clientIdType?.let { type ->
+			clientIdValue?.let { value ->
+				ClientIdCallback {
+					ClientId(
+						clientIdType = when(type) {
+							RuStoreUnityClientIdType.GAID -> ClientIdType.GAID
+							RuStoreUnityClientIdType.OAID -> ClientIdType.OAID
+						},
+						clientIdValue = value
+					)
+				}
+			}
+		}
+
+		val logger: Logger = when(loggerMode) {
+			RuStoreUnityLoggerMode.DEFAULTLOGGER -> DefaultLogger(loggerTag)
+			RuStoreUnityLoggerMode.UNITYLOGGER -> UnityLogger(loggerTag)
+		}
+
+		RuStorePushClient.init(
+			application = application,
+			projectId = projectId,
+			internalConfig = mapOf("type" to "unity"),
+			logger = logger,
+			testModeEnabled = testModeEnabled,
+			clientIdCallback = clientIdCallback
+		)
 	}
 
 	fun init(allowNativeErrorHandling: Boolean, serviceListener: RuStoreUnityMessagingServiceListener?, logListener: UnityLogListener?) {
