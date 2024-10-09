@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using RuStore.PushClient;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using UnityEngine.Android;
 
 namespace RuStore.PushExample.UI {
@@ -152,7 +151,7 @@ namespace RuStore.PushExample.UI {
 
         void IMessagingServiceListener.OnError(List<RuStoreError> errors) {
             foreach(var e in errors) {
-                var errorString = JsonConvert.SerializeObject(e);
+                var errorString = JsonUtility.ToJson(e, true);
 
                 Debug.Log(errorString);
                 AddLog("[E] " + errorString);
@@ -160,7 +159,7 @@ namespace RuStore.PushExample.UI {
         }
 
         void IMessagingServiceListener.OnMessageReceived(RemoteMessage message) {
-            var logString = string.Format("[I] Message received: {0}", JsonConvert.SerializeObject(message));
+            var logString = string.Format("[I] Message received: {0}", JsonUtility.ToJson(message.notification, true));
 
             Debug.Log(logString);
             AddLog(logString);
