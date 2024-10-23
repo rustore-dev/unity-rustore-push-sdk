@@ -18,7 +18,7 @@
 Чтобы использовать плагин с обновлённым AAR-файлом, подключите пакет из папки `ru.rustore.push`. Поддерживаются версии Unity 2022+. Для установки выполните следующие действия.
 
 1. Подключите в проект пакет **RuStore Core** и **External Dependency Manager**. Воспользуйтесь любым подходящим способом из перечня [вариантов установки](../README.md).
-1. Импортируйте пакет **RuStore Push** через **Package Manager** (**Window → Package Manager → __+__ → Add package from disk...**), указав на файл `package.json_` в папке `ru.rustore.push`.
+1. Импортируйте пакет **RuStore Push** через **Package Manager** (**Window → Package Manager → __+__ → Add package from disk...**), указав на файл `package.json` в папке `ru.rustore.push`.
 1. Обновите зависимости проекта с помощью [**External Dependency Manager**](https://github.com/googlesamples/unity-jar-resolver.git?path=/upm) (**Assets → External Dependency Manager → Android Resolver → Force Resolve**).
 
 #### История изменений
