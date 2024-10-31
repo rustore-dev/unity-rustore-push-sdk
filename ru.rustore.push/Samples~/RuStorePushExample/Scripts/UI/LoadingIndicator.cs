@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RuStore.UnitySample.UI {
+namespace RuStore.PushExample.UI {
 
     public class LoadingIndicator : MonoBehaviour {
 

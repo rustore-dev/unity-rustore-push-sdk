@@ -2,10 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using RuStore.PushClient;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using UnityEngine.Android;
 
-namespace RuStore.UnitySample.UI {
+namespace RuStore.PushExample.UI {
 
     public class PushesScreen : MonoBehaviour, IMessagingServiceListener, ILogListener {
 
@@ -77,7 +76,7 @@ namespace RuStore.UnitySample.UI {
         public void ShowToast(string message) {
             using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
             using (AndroidJavaObject currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
-            using (AndroidJavaObject utils = new AndroidJavaObject("com.plugins.pushexample.AndroidUtils")) {
+            using (AndroidJavaObject utils = new AndroidJavaObject("com.plugins.pushexample.RuStorePushAndroidUtils")) {
                 utils.Call("showToast", currentActivity, message);
             }
         }
@@ -152,7 +151,7 @@ namespace RuStore.UnitySample.UI {
 
         void IMessagingServiceListener.OnError(List<RuStoreError> errors) {
             foreach(var e in errors) {
-                var errorString = JsonConvert.SerializeObject(e);
+                var errorString = JsonUtility.ToJson(e, true);
 
                 Debug.Log(errorString);
                 AddLog("[E] " + errorString);
@@ -160,7 +159,7 @@ namespace RuStore.UnitySample.UI {
         }
 
         void IMessagingServiceListener.OnMessageReceived(RemoteMessage message) {
-            var logString = string.Format("[I] Message received: {0}", JsonConvert.SerializeObject(message));
+            var logString = string.Format("[I] Message received: {0}", JsonUtility.ToJson(message.notification, true));
 
             Debug.Log(logString);
             AddLog(logString);

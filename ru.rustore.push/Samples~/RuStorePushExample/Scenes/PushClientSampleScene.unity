@@ -178,10 +178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9b6d6e77d96394c80c2b854d1c5540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowNativeErrorHandling: 1
+  _allowNativeErrorHandling: 0
   _log: {fileID: 1496741216}
   _logScrollRect: {fileID: 1652159047}
-  _messageBox: {fileID: 2145377536}
+  _messageBox: {fileID: 1217244110}
   _loadingIndicator: {fileID: 1186724032}
   _inputFieldToken: {fileID: 1897688074}
 --- !u!1 &475615895
@@ -1344,6 +1344,7 @@ GameObject:
   - component: {fileID: 1217244107}
   - component: {fileID: 1217244109}
   - component: {fileID: 1217244108}
+  - component: {fileID: 1217244110}
   m_Layer: 5
   m_Name: Message
   m_TagString: Untagged
@@ -1411,6 +1412,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217244106}
   m_CullTransparentMesh: 1
+--- !u!114 &1217244110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217244106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccbd1b2737a585e439d66523e4f00ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _title: {fileID: 532055118}
+  _message: {fileID: 514524748}
 --- !u!1 &1238651665
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,7 +2967,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2145377536}
-        m_TargetAssemblyTypeName: RuStore.UnitySample.UI.MessageBox, Assembly-CSharp
+        m_TargetAssemblyTypeName: RuStore.PushExample.UI.MessageBox, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:

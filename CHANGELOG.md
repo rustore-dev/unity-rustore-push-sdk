@@ -1,5 +1,14 @@
 ## История изменений
 
+### Release 6.2.1
+- Версия SDK Push 6.2.1.
+- `PushClientSettings.assets` больше не используется для задания параметров инициазации.
+- Добавлен параметр `allowNativeErrorHandling` в параметры инициализации `RuStorePushClientConfig`.
+- Добавлено поле `from` в класс `RemoteMessage`.
+- Пространстов имен примера приложения изменено на `RuStore.PushExample.UI`.
+- В примере больше не используется пакет `Newtonsoft.Json`.
+- Добавлен способ инициализации SDK Push через `Application.onCreate()`.
+
 ### Release 6.1.0
 - Версия SDK Push 6.1.0.
 - RuStoreSDK помещена в отдельную assembly.
