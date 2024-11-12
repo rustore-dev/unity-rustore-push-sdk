@@ -1,6 +1,6 @@
 {
   "name": "ru.rustore.push",
-  "version": "6.2.1",
+  "version": "6.3.0",
   "displayName": "RuStore Push",
   "description": "RuStore SDK for connecting push notifications",
   "unity": "2022.3",
