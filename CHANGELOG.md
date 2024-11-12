@@ -1,6 +1,9 @@
 ## История изменений
 
 ### Release 6.2.1
+- Версия SDK Push 6.3.0.
+
+### Release 6.2.1
 - Версия SDK Push 6.2.1.
 - `PushClientSettings.assets` больше не используется для задания параметров инициазации.
 - Добавлен параметр `allowNativeErrorHandling` в параметры инициализации `RuStorePushClientConfig`.
