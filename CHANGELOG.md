@@ -1,6 +1,9 @@
 ## История изменений
 
-### Release 6.2.1
+### Release 6.4.0
+- Версия SDK Push 6.4.0.
+
+### Release 6.3.0
 - Версия SDK Push 6.3.0.
 
 ### Release 6.2.1
