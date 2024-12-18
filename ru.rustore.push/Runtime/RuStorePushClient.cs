@@ -7,7 +7,7 @@ namespace RuStore.PushClient {
 
     public class RuStorePushClient {
 
-        public static string PluginVersion = "6.4.0";
+        public static string PluginVersion = "6.5.1";
 
         private static RuStorePushClient _instance;
         private static bool _isInstanceInitialized;

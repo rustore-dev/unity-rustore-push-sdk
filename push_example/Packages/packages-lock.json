@@ -136,7 +136,7 @@
       "url": "https://packages.unity.com"
     },
     "ru.rustore.core": {
-      "version": "file:../../upm_tgz/ru.rustore.core-6.1.0.tgz",
+      "version": "file:../../upm_tgz/ru.rustore.core-8.0.0-alpha01.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {}
