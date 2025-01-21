@@ -1,6 +1,6 @@
 ext {
     destination_project = '../ru.rustore.push'
-    rustore_pushclient_version = '6.5.1'
+    rustore_pushclient_version = '6.6.1'
     rustore_sdk_type = ''
     sdk_version_code = rustore_pushclient_version.split('-')[0].replaceAll(/\D/, '').toInteger()
 }
