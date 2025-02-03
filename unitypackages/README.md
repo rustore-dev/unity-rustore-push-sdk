@@ -24,5 +24,5 @@
 
 Дополнительная помощь и инструкции доступны в [документации RuStore](https://www.rustore.ru/help/) и по электронной почте support@rustore.ru.
 
-[10]: https://www.rustore.ru/help/sdk/push-notifications/unity/6-5-1
-[20]: https://gitflic.ru/project/rustore/unity-rustore-push-sdk/blob/raw?file=unitypackages%2FRuStoreUnityPushSDK-6.5.1.unitypackage&inline=false
+[10]: https://www.rustore.ru/help/sdk/push-notifications/unity/6-7-0
+[20]: https://gitflic.ru/project/rustore/unity-rustore-push-sdk/blob/raw?file=unitypackages%2FRuStoreUnityPushSDK-6.7.0.unitypackage&inline=false
