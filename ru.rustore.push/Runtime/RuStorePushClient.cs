@@ -5,19 +5,33 @@ using RuStore.PushClient.Internal;
 
 namespace RuStore.PushClient {
 
+    /// <summary>
+    /// Класс реализует API для приёма push-сообщений через сервисы RuStore.
+    /// </summary>
     public class RuStorePushClient {
 
+        /// <summary>
+        /// Версия плагина.
+        /// </summary>
         public static string PluginVersion = "6.7.0";
 
         private static RuStorePushClient _instance;
         private static bool _isInstanceInitialized;
 
         private bool _isInitialized;
+
+        /// <summary>
+        /// Возвращает true, если синглтон был инициализирован, в противном случае — false.
+        /// </summary>
         public bool IsInitialized => _isInitialized;
         private AndroidJavaObject _clientWrapper;
 
         private bool _allowNativeErrorHandling;
 
+        /// <summary>
+        /// Возвращает единственный экземпляр RuStorePushClient (реализация паттерна Singleton).
+        /// Если экземпляр еще не создан, создает его.
+        /// </summary>
         public static RuStorePushClient Instance {
             get {
                 if (!_isInstanceInitialized) {
@@ -28,6 +42,10 @@ namespace RuStore.PushClient {
             }
         }
 
+        /// <summary>
+        /// Обработка ошибок в нативном SDK.
+        /// true — разрешает обработку ошибок, false — запрещает.
+        /// </summary>
         public bool AllowNativeErrorHandling {
             get {
                 return _allowNativeErrorHandling;
@@ -44,6 +62,14 @@ namespace RuStore.PushClient {
         private RuStorePushClient() {
         }
 
+        /// <summary>
+        /// Выполняет инициализацию синглтона RuStorePushClient.
+        /// </summary>
+        /// <param name="config">
+        /// Объект класса RuStore.PushClient.RuStorePushClientConfig.
+        /// Содержит параметры инициализации push-клиента.
+        /// </param>
+        /// <returns>Возвращает true, если инициализация была успешно выполнена, в противном случае — false.</returns>
         public bool Init(RuStorePushClientConfig config) {
             if (_isInitialized) {
                 Debug.LogError("Error: RuStore Push Client is already initialized");
@@ -71,6 +97,19 @@ namespace RuStore.PushClient {
             return true;
         }
 
+        /// <summary>
+        /// Проверка доступности приёма push-сообщений.
+        /// Если все условия выполняются, возвращается RuStore.FeatureAvailabilityResult.isAvailable == true.
+        /// В противном случае возвращается RuStore.FeatureAvailabilityResult.isAvailable == false.
+        /// </summary>
+        /// <param name="onFailure">
+        /// Действие, выполняемое в случае ошибки.
+        /// Возвращает объект RuStore.RuStoreError с информацией об ошибке.
+        /// </param>
+        /// <param name="onSuccess">
+        /// Действие, выполняемое при успешном завершении операции.
+        /// Возвращает объект RuStore.FeatureAvailabilityResult с информацией о доступности приёма push-сообщений.
+        /// </param>
         public void CheckPushAvailability(Action<RuStoreError> onFailure, Action<FeatureAvailabilityResult> onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
@@ -81,6 +120,17 @@ namespace RuStore.PushClient {
 
         }
 
+        /// <summary>
+        /// Получить текущий push-токен пользователя.
+        /// </summary>
+        /// <param name="onFailure">
+        /// Действие, выполняемое в случае ошибки.
+        /// Возвращает объект RuStore.RuStoreError с информацией об ошибке.
+        /// </param>
+        /// <param name="onSuccess">
+        /// Действие, выполняемое при успешном завершении операции.
+        /// Возвращает push-токен в виде строки.
+        /// </param>
         public void GetToken(Action<RuStoreError> onFailure, Action<string> onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
@@ -90,6 +140,16 @@ namespace RuStore.PushClient {
             _clientWrapper.Call("getToken", listener);
         }
 
+        /// <summary>
+        /// Удалить текущий push-токен пользователя.
+        /// </summary>
+        /// <param name="onFailure">
+        /// Действие, выполняемое в случае ошибки.
+        /// Возвращает объект RuStore.RuStoreError с информацией об ошибке.
+        /// </param>
+        /// <param name="onSuccess">
+        /// Действие, выполняемое при успешном завершении операции.
+        /// </param>
         public void DeleteToken(Action<RuStoreError> onFailure, Action onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
@@ -99,6 +159,17 @@ namespace RuStore.PushClient {
             _clientWrapper.Call("deleteToken", listener);
         }
 
+        /// <summary>
+        /// Подписка на push-уведомления по топику.
+        /// </summary>
+        /// <param name="topicName">Название топика.</param>
+        /// <param name="onFailure">
+        /// Действие, выполняемое в случае ошибки.
+        /// Возвращает объект RuStore.RuStoreError с информацией об ошибке.
+        /// </param>
+        /// <param name="onSuccess">
+        /// Действие, выполняемое при успешном завершении операции.
+        /// </param>
         public void SubscribeToTopic(string topicName, Action<RuStoreError> onFailure, Action onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
@@ -108,6 +179,17 @@ namespace RuStore.PushClient {
             _clientWrapper.Call("subscribeToTopic", topicName, listener);
         }
 
+        /// <summary>
+        /// Отписка от топика.
+        /// </summary>
+        /// <param name="topicName">Название топика.</param>
+        /// <param name="onFailure">
+        /// Действие, выполняемое в случае ошибки.
+        /// Возвращает объект RuStore.RuStoreError с информацией об ошибке.
+        /// </param>
+        /// <param name="onSuccess">
+        /// Действие, выполняемое при успешном завершении операции.
+        /// </param>
         public void UnsubscribeFromTopic(string topicName, Action<RuStoreError> onFailure, Action onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
@@ -117,6 +199,19 @@ namespace RuStore.PushClient {
             _clientWrapper.Call("unsubscribeFromTopic", topicName, listener);
         }
 
+        /// <summary>
+        /// Доставка тестовых push-уведомлений.
+        /// Тестовый режим (параметр testModeEnabled = true) должен быть активирован в момент инициализации в Application,
+        /// либо в наследнике AbstractRuStorePushClientParams (при автоматической инициализации).
+        /// </summary>
+        /// <param name="payload"></param>
+        /// <param name="onFailure">
+        /// Действие, выполняемое в случае ошибки.
+        /// Возвращает объект RuStore.RuStoreError с информацией об ошибке.
+        /// </param>
+        /// <param name="onSuccess">
+        /// Действие, выполняемое при успешном завершении операции.
+        /// </param>
         public void SendTestNotification(TestNotificationPayload payload, Action<RuStoreError> onFailure, Action onSuccess) {
             if (!IsPlatformSupported(onFailure)) {
                 return;
