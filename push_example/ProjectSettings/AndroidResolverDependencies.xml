@@ -3,7 +3,7 @@
     <package>androidx.lifecycle:lifecycle-viewmodel:2.5.1</package>
     <package>androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1</package>
     <package>ru.rustore.sdk:core:8.0.0-alpha01</package>
-    <package>ru.rustore.sdk:pushclient:6.8.0</package>
+    <package>ru.rustore.sdk:pushclient:6.9.1</package>
   </packages>
   <files />
   <settings>
