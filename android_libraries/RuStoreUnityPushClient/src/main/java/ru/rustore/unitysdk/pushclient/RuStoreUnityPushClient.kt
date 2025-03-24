@@ -174,6 +174,10 @@ object RuStoreUnityPushClient : UnityLogListener  {
 		logListener?.Log(logString)
 	}
 
+	override fun LogInfo(logString: String?) {
+		logListener?.LogInfo(logString)
+	}
+
 	override fun LogWarning(logString: String?) {
 		logListener?.LogWarning(logString)
 	}
@@ -184,5 +188,13 @@ object RuStoreUnityPushClient : UnityLogListener  {
 
 	override fun LogException(throwable: Throwable?) {
 		logListener?.LogException(throwable)
+	}
+
+	override fun LogDebug(logString: String?) {
+		logListener?.LogDebug(logString)
+	}
+
+	override fun LogVerbose(logString: String?) {
+		logListener?.LogVerbose(logString)
 	}
 }

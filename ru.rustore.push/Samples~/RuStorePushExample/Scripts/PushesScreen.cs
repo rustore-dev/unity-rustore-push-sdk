@@ -173,6 +173,10 @@ namespace RuStore.PushExample.UI {
         }
 
         void ILogListener.Log(string logString) {
+            // AddLog(logString);
+        }
+
+        void ILogListener.LogInfo(string logString) {
             AddLog(logString);
         }
 
@@ -181,6 +185,14 @@ namespace RuStore.PushExample.UI {
         }
 
         void ILogListener.LogError(string logString) {
+            AddLog(logString);
+        }
+
+        void ILogListener.LogDebug(string logString) {
+            AddLog(logString);
+        }
+
+        void ILogListener.LogVerbose(string logString) {
             AddLog(logString);
         }
 
@@ -208,6 +220,5 @@ namespace RuStore.PushExample.UI {
                 message: message,
                 onClose: onClose);
         }
-
     }
 }

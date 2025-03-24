@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace RuStore.PushClient.Internal {
 
@@ -11,9 +12,16 @@ namespace RuStore.PushClient.Internal {
             _listener = listener;
         }
 
+        [Obsolete("This method is deprecated. Use the LogInfo, LogDebug and LogVerbose methods.")]
         void Log(string logString) {
             CallbackHandler.AddCallback(() => {
                 _listener?.Log(logString);
+            });
+        }
+
+        void LogInfo(string logString) {
+            CallbackHandler.AddCallback(() => {
+                _listener?.LogInfo(logString);
             });
         }
 
@@ -26,6 +34,18 @@ namespace RuStore.PushClient.Internal {
         void LogError(string logString) {
             CallbackHandler.AddCallback(() => {
                 _listener?.LogError(logString);
+            });
+        }
+
+        void LogDebug(string logString) {
+            CallbackHandler.AddCallback(() => {
+                _listener?.LogDebug(logString);
+            });
+        }
+
+        void LogVerbose(string logString) {
+            CallbackHandler.AddCallback(() => {
+                _listener?.LogVerbose(logString);
             });
         }
 
