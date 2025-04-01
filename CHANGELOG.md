@@ -2,6 +2,8 @@
 
 ### Release 6.10.0
 - Версия SDK Push 6.10.0.
+- В интерфейс `ILogListener` добавлены методы `LogInfo`, `LogDebug`, `LogVerbose`.
+- В интерфейсе `ILogListener` метод `Log` помечен как устаревший.
 
 ### Release 6.9.1
 - Версия SDK Push 6.9.1.
