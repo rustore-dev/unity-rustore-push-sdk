@@ -1,3 +1,5 @@
+> ⚠️ Не используйте кнопку "Код → Скачать" на сайте GitFlic – этот метод не загружает файлы из Git LFS. [Инструкция по клонированию](README_CLONE.md).
+
 ### Unity-плагин RuStore для подключения пуш-уведомлений
 
 #### [🔗 Документация разработчика][10]
@@ -13,12 +15,33 @@
 
 #### Установка плагина в свой проект
 
-Доступные варианты установки:
-- подключение UPM-пакета через **Package Manager**:
-    - вариант **Add package from tarball...** — рекомендуемый способ установки, см. [README](https://gitflic.ru/project/rustore/unity-rustore-push-sdk/file?file=upm_tgz);
-    - вариант **Add package from git URL...** — для немедленного получения последних изменений, см. [README](https://gitflic.ru/project/rustore/unity-rustore-push-sdk/file?file=ru.rustore.push);
-    - вариант **Add package from disk...** — при необходимости самостоятельных доработок, см. [README](https://gitflic.ru/project/rustore/unity-rustore-push-sdk/file?file=android_libraries);
-- подключение `unitypackage` через **Import Assets** — устаревший способ установки, см. [README](https://gitflic.ru/project/rustore/unity-rustore-push-sdk/file?file=unitypackages).
+**Подключение UPM-пакета через Package Manager**:
+   - вариант **Add package from tarball...** — рекомендуемый способ установки.
+   
+   1. Скачайте файлы <code>ru.rustore.core-<em>version</em>.tgz</code> и <code>ru.rustore.push-<em>version</em>.tgz</code> со страницы [релизов][20].
+   1. Импортируйте скачанные пакеты в проект через **Package Manager** (**Window → Package Manager → __+__ → Add package from tarball...**).
+   1. Выполните шаги раздела **Настройка проекта**, см. ниже.
+
+   - вариант **Add package from disk...** — при необходимости самостоятельных доработок, см. [README](https://gitflic.ru/project/rustore/unity-rustore-push-sdk/file/?file=ru.rustore.push);
+
+**Подключение \*.unitypackage через Import Assets** — устаревший способ установки.
+
+   1. Скачайте пакет <code>RuStoreUnityPushSDK-<em>version</em>.unitypackage</code> со страницы [релизов][20].
+   1. Импортируйте скачанный пакета в проект: **Assets → Import Package → Custom Package...**.
+   1. Выполните шаги раздела **Настройка проекта**, см. ниже.
+
+#### Настройка проекта
+
+1. Откройте настройки проекта: **Edit → Project Settings → Player → Android Settings**.
+1. В pазделе **Publishing Settings** включите настройки:
+   - Custom Main Manifest.
+   - Custom Main Gradle Template.
+   - Custom Gradle Properties Template.
+1. В разделе **Other Settings** настройте:
+   - Package name.
+   - Minimum API Level = 24.
+   - Target API Level = 34.
+1. Обновите зависимости проекта с помощью [**External Dependency Manager**](README_EDM.md): **Assets → External Dependency Manager → Android Resolver → Force Resolve**.
 
 #### История изменений
 
@@ -33,3 +56,4 @@
 Дополнительная помощь и инструкции доступны в [документации RuStore](https://www.rustore.ru/help/) и по электронной почте support@rustore.ru.
 
 [10]: https://www.rustore.ru/help/sdk/push-notifications/unity/6-10-0
+[20]: https://gitflic.ru/project/rustore/unity-rustore-push-sdk/release
