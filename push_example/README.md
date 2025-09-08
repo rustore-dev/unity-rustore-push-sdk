@@ -52,5 +52,5 @@
 
 Дополнительная помощь и инструкции доступны в [документациии RuStore](https://www.rustore.ru/help/) и по электронной почте support@rustore.ru.
 
-[10]: https://www.rustore.ru/help/sdk/push-notifications/unity/6-10-0
-[20]: https://www.rustore.ru/help/sdk/push-notifications/unity/6-10-0/#get-push-token
+[10]: https://www.rustore.ru/help/sdk/push-notifications/unity/7-0-0
+[20]: https://www.rustore.ru/help/sdk/push-notifications/unity/7-0-0/#get-push-token
