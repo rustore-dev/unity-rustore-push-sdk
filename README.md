@@ -11,7 +11,8 @@
 #### Сборка примера приложения
 
 Вы можете ознакомиться с демонстрационным приложением, содержащим представление работы всех методов SDK:
-- [push_example](https://gitflic.ru/project/rustore/unity-rustore-push-sdk/file?file=push_example).
+- [push_example](https://gitflic.ru/project/rustore/unity-rustore-push-sdk/file?file=push_example) — демонстрационный проект на Unity 2022.3.8f1 для поддержки долгоживущих проектов (может быть автоматически сконвертирован на более поздние версии Unity).
+- [push_example_6000](https://gitflic.ru/project/rustore/unity-rustore-push-sdk/file?file=push_example_6000) — демонстрационный проект на Unity 6000.0.55f1 для актуальных версий Unity.
 
 #### Установка плагина в свой проект
 

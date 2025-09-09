@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="rustore.unitysdk.sample" xmlns:tools="http://schemas.android.com/tools">
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+  <application>
+    <activity android:name="ru.rustore.unitysdk.RuStoreUnityActivity"
+              android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:name="com.unity3d.player.UnityPlayerActivity"
+              android:theme="@style/UnityThemeSelector" android:exported="true">
+      <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+    </activity>
+    <service android:name="ru.rustore.unitysdk.pushclient.RuStoreUnityMessagingService" android:exported="true" tools:ignore="ExportedService">
+      <intent-filter>
+        <action android:name="ru.rustore.sdk.pushclient.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
+    <meta-data
+        android:name="ru.rustore.sdk.pushclient.project_id"
+        android:value="YOUR_PROJECT_ID" />
+    <meta-data
+        android:name="ru.rustore.sdk.pushclient.params_class"
+        android:value="ru.rustore.unitysdk.pushclient.RuStorePushClientParamsExample" />
+  </application>
+</manifest>
