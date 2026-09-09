@@ -13,7 +13,7 @@ namespace RuStore.PushClient {
         /// <summary>
         /// Версия плагина.
         /// </summary>
-        public static string PluginVersion = "6.10.0";
+        public static string PluginVersion = "7.0.0";
 
         private static RuStorePushClient _instance;
         private static bool _isInstanceInitialized;
